@@ -12,7 +12,7 @@
 
 ---
 
-## **목적 설정** ![image](http://ainder.net/cms/wp-content/uploads/2016/06/CLARIDAD.png)
+## **목적 설정**
 
 - 실증적인 목표를 설정하여, 내 프로젝트의 완성도를 객관적으로 체크하자
   - 널리 쓰이고 있는 서비스를 모방
