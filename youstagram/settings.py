@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blog',
+    'photos',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +79,8 @@ WSGI_APPLICATION = 'youstagram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'YouStagram',
-        'USER': 'Jeewhan',
+        'NAME': 'YouStagram', # 데이터베이스 이름
+        'USER': 'Jeewhan', # 유저 이름
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
@@ -122,7 +123,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/upload_files/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')

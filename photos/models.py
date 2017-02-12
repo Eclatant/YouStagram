@@ -1,0 +1,22 @@
+from django.db import models
+
+
+class Photo(models.Model):
+    # id = "개별 사진을 구분하는 색인값"
+    # image = "원본 사진 파일"
+    image = models.ImageField(upload_to='%Y/%m/%d/original')
+    # filtered_image = "필터 적용된 사진 파일"
+    filtered_image = models.ImageField(upload_to='%Y/%m/%d/filtered')
+    # content = "사진에 대한 설명문"
+    content = models.TextField(max_length=500, null=True, blank=True)
+    # created_at = "생성일시"
+    created_at = models.DateTimeField(auto_now_add=True)
+    edited_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.image.name
+
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        self.filtered_image.delete()
+        super(Photo, self).delete(*args, **kwargs)
