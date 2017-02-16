@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+{% if form.errors %}
+  <p>ID나 비밀번호가 일치하지 않습니다.</p>
+{% endif %}
+
+<form method="POST" action="{% url 'login' %}">
+  <input type="hidden" name="next" value="{{ next }}" />
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">로그인</button>
+</form>
+
+{% endblock %}

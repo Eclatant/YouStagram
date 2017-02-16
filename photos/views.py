@@ -1,8 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
-from .models import Photo
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
+
 from .forms import PhotoForm
+from .models import Photo
 
 
 def hello(request):
@@ -11,7 +15,7 @@ def hello(request):
 
 def detail(request, pk, hidden=False):
     try:
-        photo = Photo.object.get(pk=pk)
+        photo = Photo.objects.get(pk=pk)
     except Photo.DoesNotExist:
         return HttpResponse("사진이 없습니다.")
 
@@ -26,6 +30,7 @@ def detail(request, pk, hidden=False):
     return HttpResponse('\n'.join(messages))
 
 
+@login_required
 def create(request):
     if request.method == "GET":
         form = PhotoForm()
@@ -33,6 +38,8 @@ def create(request):
         form = PhotoForm(request.POST, request.FILES)
 
         if form.is_valid():
+            obj = form.save(commit=False)
+            obj.user = request.user
             obj = form.save()
             return redirect(obj)
 
