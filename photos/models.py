@@ -11,7 +11,7 @@ class Photo(models.Model):
     # created_at = "생성일시"
 
     image = models.ImageField(upload_to='%Y/%m/%d/original')
-    filtered_image = models.ImageField(upload_to='%Y/%m/%d/filtered')
+    # filtered_image = models.ImageField(upload_to='%Y/%m/%d/filtered')
     content = models.TextField(max_length=500, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
