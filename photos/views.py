@@ -1,6 +1,5 @@
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
@@ -12,11 +11,7 @@ from .models import Photo
 def photo_new(request):
     if request.method == "POST":
         form = PhotoForm(request.POST, request.FILES)
-        print(request.FILES)
         if form.is_valid():
-            # photo.user = request.user
-            # photo.image = form.
-            # photo.save()
             f = form.save(commit=False)
             f.user = request.user
             f.save()
@@ -26,9 +21,10 @@ def photo_new(request):
         form = PhotoForm()
         return render(request, 'photos/edit.html', {'form': form})
 
+
 def index(request):
     ctx = {}
-    return render(request, 'index.html', ctx)
+    return render(request, 'photos/index.html', ctx)
 
 
 def hello(request):

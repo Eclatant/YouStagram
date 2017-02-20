@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+<div class="col-md-12">
+  {% for photo in photo_list %}
+    <div>
+      {{ photo.image }}
+      {{ photo.content }}
+    </div>
+  {% endfor %}
+</div>

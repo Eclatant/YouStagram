@@ -42,19 +42,19 @@
 
           <form class="navbar-form navbar-right">
 
-            <a href="#">
+            <a href="/blog/">
               <button class="btn btn-primary">Blog</button>
             </a>
-            <a href="#">
+            <a href="/photos/">
               <button class="btn btn-primary">Photos</button>
             </a>
-            <a href="#">
-              <button class="btn btn-primary">Lotto</button>
-            </a>
 
-            <a href="{% url "social:begin" "facebook" %}">
-              <button class="btn btn-primary">페이스북으로 10초 만에 로그인</button>
-            </a>
+            {% if user.is_authenticated %}
+            {% else %}
+              <a href="{% url "social:begin" "facebook" %}">
+                <button class="btn btn-primary">페이스북으로 10초 만에 로그인</button>
+              </a>
+            {% endif %}
 
           </form>
 
@@ -65,7 +65,7 @@
 
     <div class="container">
       <div class="col-md-12">
-      {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
       </div>
     </div>
 
