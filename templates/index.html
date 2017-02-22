@@ -1,34 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>Youstagram</h1>
+    <p>인스타그램 관련 프로젝트</p>
+    <!-- <p><a class="btn btn-primary btn-lg" href="/" role="button">Learn more &raquo;</a></p> -->
+  </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Index Page</h1>
-        <p>이곳은 어드민 페이지입니다!</p>
-        <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Blog</h2>
+        <p>DjangoGirls Tutorial</p>
+        <p><a class="btn btn-default" href="" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Photos</h2>
+        <p>인스타그램</p>
+        <p><a class="btn btn-default" href="photos" role="button">View details &raquo;</a></p>
+     </div>
+      <div class="col-md-4">
+        <h2>Text-Counter</h2>
+        <p>리액트로 구현한 글자수 세기</p>
+        <p><a class="btn btn-default" href="counter" role="button">View details &raquo;</a></p>
       </div>
     </div>
-
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Blog</h2>
-          <p>DjangoGirls Tutorial 내용</p>
-          <p><a class="btn btn-default" href="/blog/" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Photos</h2>
-          <p>장고 중급자 강좌 내용</p>
-          <p><a class="btn btn-default" href="/photos/" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Word Counter</h2>
-          <p>리액트로 구현한 단어 세기 프로그램</p>
-          <p><a class="btn btn-default" href="/counter/" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
-
+  </div>
+</div>
 {% endblock %}

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% block content %}
 <div class="col-md-12">
-  {% for photo in photo_list %}
+  {% for photo in photos %}
     <div>
-      {{ photo.image }}
+      <img src='{{ photo.image.url }}'>
       {{ photo.content }}
     </div>
   {% endfor %}
 </div>
+{% endblock %}

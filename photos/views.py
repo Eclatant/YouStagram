@@ -23,7 +23,10 @@ def photo_new(request):
 
 
 def index(request):
-    ctx = {}
+    photo_list = Photo.objects.all()
+    ctx = {
+        'photos': photo_list
+    }
     return render(request, 'photos/index.html', ctx)
 
 
